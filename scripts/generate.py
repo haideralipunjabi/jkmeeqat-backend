@@ -6,12 +6,14 @@ import re
 import json
 import hashlib
 import os
+from pathlib import Path
+BASE_FOLDER = Path(__file__).parent.parent.resolve()
 TIME_REGEX = re.compile("\d{1,2}:\d{2}")
-config = yaml.safe_load(open("config.yaml","r"))
+config = yaml.safe_load(open(BASE_FOLDER/"config.yaml","r"))
 
 def initialize():
-    shutil.rmtree("dist", ignore_errors=True)
-    os.mkdir("dist")
+    shutil.rmtree(BASE_FOLDER / "dist", ignore_errors=True)
+    os.mkdir(BASE_FOLDER / "dist")
 
 def dict_hash(dictionary):
     """MD5 hash of a dictionary."""
@@ -50,14 +52,14 @@ def generate_data():
     for calendar in config["calendars"]:
         data[calendar["key"]] = {
             "name": calendar["name"],
-            "timings": load_timings("raw_timings/"+calendar["timings"])
+            "timings": load_timings(BASE_FOLDER / ("raw_timings/"+calendar["timings"]))
         }
 
     output = {
         "data": data,
         "hash": dict_hash(data)
     }
-    json.dump(output, open("dist/data.json","w"))
+    json.dump(output, open(BASE_FOLDER/"dist/data.json","w"))
 
 
 if __name__ == "__main__":
