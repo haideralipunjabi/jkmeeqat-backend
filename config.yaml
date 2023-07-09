@@ -1,0 +1,4 @@
+calendars:
+  - name: "Dar-ul-uloom Raheemiya"
+    key: "raheemiya"
+    timings: "raheemiya.csv"
