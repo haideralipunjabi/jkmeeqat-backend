@@ -55,11 +55,13 @@ def generate_data():
             "timings": load_timings(BASE_FOLDER / ("raw_timings/"+calendar["timings"]))
         }
 
+    hash_string = dict_hash(data)
     output = {
         "data": data,
-        "hash": dict_hash(data)
+        "hash": hash_string
     }
     json.dump(output, open(BASE_FOLDER/"dist/data.json","w"))
+    json.dump({"hash":hash_string}, open(BASE_FOLDER/"dist/hash.json","w"))
 
 
 if __name__ == "__main__":
