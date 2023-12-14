@@ -21,11 +21,10 @@ def dict_hash(dictionary):
     # We need to sort arguments so {'a': 1, 'b': 2} is
     # the same as {'b': 2, 'a': 1}
     encoded = json.dumps(dictionary).encode()
-    print(encoded)
     dhash.update(encoded)
     return dhash.hexdigest()
 
-def load_timings(filepath: str):
+def load_timings(filepath: str, items: list):
     timings = list(csv.reader(open(filepath,"r")))
     header = timings[0]
     timings = timings[1:]
@@ -39,6 +38,8 @@ def load_timings(filepath: str):
             raise Exception("Invalid Timings Data")
         row_dict = {}
         for i in range(len(header)):
+            if header[i] not in items:
+                continue
             if not TIME_REGEX.match(row[i]):
                 raise Exception(f"Invalid Timings Data @ {filepath} Row:{i+1}")
             row_dict[header[i]] = row[i]
@@ -53,7 +54,7 @@ def generate_data():
     for calendar in config["calendars"]:
         data[calendar["key"]] = {
             "name": calendar["name"],
-            "timings": load_timings(BASE_FOLDER / ("raw_timings/"+calendar["timings"]))
+            "timings": load_timings(BASE_FOLDER / ("raw_timings/"+calendar["timings"]), calendar["items"])
         }
 
     hash_string = dict_hash(data)
