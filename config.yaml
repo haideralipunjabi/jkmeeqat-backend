@@ -8,3 +8,22 @@ calendars:
       - asr
       - maghrib
       - isha
+    offsets:
+      - name: Pulwama, Kulgam, Harmukh
+        offset: -1
+      - name: Islamabad, Tral, Kud
+        offset: -2
+      - name: Pahalgam
+        offset: -3
+      - name: Leh
+        offset: -11
+      - name: Baramulla, Tangmarg, Sopore
+        offset: 1
+      - name: Bandipora, Poonch
+        offset: 2
+      - name: Uri
+        offset: 3
+      - name: Teetwal, Karnah
+        offset: 4
+
+

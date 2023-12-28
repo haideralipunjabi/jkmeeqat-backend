@@ -48,13 +48,16 @@ def load_timings(filepath: str, items: list):
     return data
 
 
+
+
 def generate_data():
     initialize()
     data = {}
     for calendar in config["calendars"]:
         data[calendar["key"]] = {
             "name": calendar["name"],
-            "timings": load_timings(BASE_FOLDER / ("raw_timings/"+calendar["timings"]), calendar["items"])
+            "timings": load_timings(BASE_FOLDER / ("raw_timings/"+calendar["timings"]), calendar["items"]),
+            "offsets": calendar["offsets"],
         }
 
     hash_string = dict_hash(data)
