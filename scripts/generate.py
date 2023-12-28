@@ -7,13 +7,16 @@ import json
 import hashlib
 import os
 from pathlib import Path
+
 BASE_FOLDER = Path(__file__).parent.parent.resolve()
 TIME_REGEX = re.compile("\d{1,2}:\d{2}")
-config = yaml.safe_load(open(BASE_FOLDER/"config.yaml","r"))
+config = yaml.safe_load(open(BASE_FOLDER / "config.yaml", "r"))
+
 
 def initialize():
     shutil.rmtree(BASE_FOLDER / "dist", ignore_errors=True)
     os.mkdir(BASE_FOLDER / "dist")
+
 
 def dict_hash(dictionary):
     """MD5 hash of a dictionary."""
@@ -24,15 +27,16 @@ def dict_hash(dictionary):
     dhash.update(encoded)
     return dhash.hexdigest()
 
+
 def load_timings(filepath: str, items: list):
-    timings = list(csv.reader(open(filepath,"r")))
+    timings = list(csv.reader(open(filepath, "r")))
     header = timings[0]
     timings = timings[1:]
     if len(timings) != 366:
         raise Exception("Invalid Timings Data")
     data = {}
     first_date = dt.fromisoformat("2000-01-01")
-    for i,row in enumerate(timings):
+    for i, row in enumerate(timings):
         date = first_date + td(days=i)
         if len(row) != len(header):
             raise Exception("Invalid Timings Data")
@@ -48,25 +52,22 @@ def load_timings(filepath: str, items: list):
     return data
 
 
-
-
 def generate_data():
     initialize()
     data = {}
     for calendar in config["calendars"]:
         data[calendar["key"]] = {
             "name": calendar["name"],
-            "timings": load_timings(BASE_FOLDER / ("raw_timings/"+calendar["timings"]), calendar["items"]),
+            "timings": load_timings(
+                BASE_FOLDER / ("raw_timings/" + calendar["timings"]), calendar["items"]
+            ),
             "offsets": calendar["offsets"],
         }
 
     hash_string = dict_hash(data)
-    output = {
-        "data": data,
-        "hash": hash_string
-    }
-    json.dump(output, open(BASE_FOLDER/"dist/data.json","w"))
-    json.dump({"hash":hash_string}, open(BASE_FOLDER/"dist/hash.json","w"))
+    output = {"data": data, "hash": hash_string}
+    json.dump(output, open(BASE_FOLDER / "dist/data.json", "w"))
+    json.dump({"hash": hash_string}, open(BASE_FOLDER / "dist/hash.json", "w"))
 
 
 if __name__ == "__main__":
