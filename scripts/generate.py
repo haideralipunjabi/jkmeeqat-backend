@@ -32,10 +32,12 @@ def load_timings(filepath: str, items: list):
     timings = list(csv.reader(open(filepath, "r")))
     header = timings[0]
     timings = timings[1:]
-    if len(timings) != 366:
+    if len(timings) < 365 or len(timings) > 366:
         raise Exception("Invalid Timings Data")
     data = {}
     first_date = dt.fromisoformat("2000-01-01")
+    if len(timings) == 365:
+        first_date = dt.fromisoformat("2001-01-01")
     for i, row in enumerate(timings):
         date = first_date + td(days=i)
         if len(row) != len(header):
@@ -59,9 +61,11 @@ def generate_data():
         data[calendar["key"]] = {
             "name": calendar["name"],
             "timings": load_timings(
-                BASE_FOLDER / ("raw_timings/" + calendar["timings"]), calendar["items"]
+                BASE_FOLDER / ("raw_timings/" + calendar["timings"]),
+                [x["key"] for x in calendar["items"]],
             ),
             "offsets": calendar["offsets"],
+            "header": calendar["items"],
         }
 
     hash_string = dict_hash(data)

@@ -3,11 +3,16 @@ calendars:
     key: "raheemiya"
     timings: "raheemiya.csv"
     items:
-      - fajr
-      - zuhr
-      - asr
-      - maghrib
-      - isha
+      - key: fajr
+        label: Fajr
+      - key: zuhr
+        label: Zuhr
+      - key: asr
+        label: Asr
+      - key: maghrib
+        label: Maghrib
+      - key: isha
+        label: Isha
     offsets:
       - name: Pulwama, Kulgam, Harmukh
         offset: -1
@@ -25,5 +30,34 @@ calendars:
         offset: 3
       - name: Teetwal, Karnah
         offset: 4
+  - name: "Educational Trust Kashmir"
+    key: "etk"
+    timings: "etk.csv"
+    items:
+      - key: fajr
+        label: Fajr
+      - key: zuhr
+        label: Zuhrain
+      - key: maghrib
+        label: Maghribain
+    offsets:
+      - name: Pulwama, Kulgam, Harmukh
+        offset: -1
+      - name: Islamabad, Tral, Kud
+        offset: -2
+      - name: Pahalgam
+        offset: -3
+      - name: Leh
+        offset: -11
+      - name: Baramulla, Tangmarg, Sopore
+        offset: 1
+      - name: Bandipora, Poonch
+        offset: 2
+      - name: Uri
+        offset: 3
+      - name: Teetwal, Karnah
+        offset: 4
+
+
 
 
