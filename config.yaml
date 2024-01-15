@@ -1,5 +1,6 @@
 calendars:
   - name: "Dar-ul-uloom Raheemiya"
+    description: "Timings for Jammu and Kashmir (Fiqah Hanafiya) copied from Meeqat-us-Salaat, Darul Uloom Raheemiyyah, Bandipora. Default timings are for Srinagar, use Offsets to calculate for other areas."
     key: "raheemiya"
     timings: "raheemiya.csv"
     items:
@@ -31,6 +32,7 @@ calendars:
       - name: Teetwal, Karnah
         offset: 4
   - name: "Educational Trust Kashmir"
+    description: "Timings for Jammu and Kashmir (Fiqah Jaffaria) copied from calendar of Educational Trust Kashmir. Default timings are for Srinagar, use Offsets to calculate for other areas."
     key: "etk"
     timings: "etk.csv"
     items:

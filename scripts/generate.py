@@ -60,6 +60,7 @@ def generate_data():
     for calendar in config["calendars"]:
         data[calendar["key"]] = {
             "name": calendar["name"],
+            "description": calendar["description"],
             "timings": load_timings(
                 BASE_FOLDER / ("raw_timings/" + calendar["timings"]),
                 [x["key"] for x in calendar["items"]],
