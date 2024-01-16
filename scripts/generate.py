@@ -68,10 +68,22 @@ def generate_data():
             "offsets": calendar["offsets"],
             "header": calendar["items"],
         }
-
+    custom_config = config["custom_config"]
+    for item in custom_config:
+        item["description"] = f"{item['name']}. "
+        if "fajr" in item:
+            item["description"] += f"Fajr Angle: {item['fajr']}. "
+        if "maghrib" in item:
+            item["description"] += f"Maghrib Angle: {item['Maghrib']}. "
+        if "isha" in item:
+            item["description"] += f"Isha Angle: {item['isha']}. "
+        if "ishaInterval" in item:
+            item["description"] += f"Isha Angle: {item['ishaInterval']} min. "
+        item["description"] = item["description"].strip()
     hash_string = dict_hash(data)
     output = {"data": data, "hash": hash_string}
     json.dump(output, open(BASE_FOLDER / "dist/data.json", "w"))
+    json.dump(custom_config, open(BASE_FOLDER / "dist/custom_config.json", "w"))
     json.dump({"hash": hash_string}, open(BASE_FOLDER / "dist/hash.json", "w"))
 
 
