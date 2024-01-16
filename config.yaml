@@ -62,41 +62,42 @@ calendars:
 
 custom_config:
   - name: "Shia Ithna-Ashari, Leva Institute, Qum"
-    key: shia
-    fajr: 16
-    isha: 14
-    magrhib: 4
+    parameters:
+        fajrAngle: 16
+        ishaAngle: 14
+        maghribAngle: 4
   - name: "Gulf Region"
-    key: gulf
-    fajr: 19.5
-    ishaInterval: 90
+    parameters:
+      fajrAngle: 19.5
+      ishaInterval: 90
   - name: "Union Organization Islamic de France"
-    key: france
-    fajr: 12
-    isha: 12
+    parameters:
+      fajrAngle: 12
+      ishaAngle: 12
   - name: "Spiritual Administration of Muslims of Russia"
-    key: russia
-    fajr: 16
-    isha: 15
+    parameters:
+      fajrAngle: 16
+      ishaAngle: 15
   - name: "Jabatan Kemajuan Islam Malaysia (JAKIM)"
-    key: jakim
-    fajr: 20
-    isha: 18
+    parameters:
+      fajrAngle: 20
+      ishaAngle: 18
   - name: "Tunisia"
-    key: tunisia
-    fajr: 18
-    isha: 18
+    parameters:
+      fajrAngle: 18
+      ishaAngle: 18
   - name: "Algeria"
-    key: algeria
-    fajr: 18
-    isha: 17
+    parameters:
+      fajrAngle: 18
+      ishaAngle: 17
   - name: "Kementerian Agama Republik Indonesia"
-    key: kemenag
-    fajr: 20
-    isha: 18
+    parameters:
+      fajrAngle: 20
+      ishaAngle: 18
   - name: "Morocco"
-    fajr: 19
-    isha: 17
+    parameters:
+      fajrAngle: 19
+      ishaAngle: 17
 
 
 

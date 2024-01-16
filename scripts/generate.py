@@ -71,14 +71,18 @@ def generate_data():
     custom_config = config["custom_config"]
     for item in custom_config:
         item["description"] = f"{item['name']}. "
-        if "fajr" in item:
-            item["description"] += f"Fajr Angle: {item['fajr']}. "
-        if "maghrib" in item:
-            item["description"] += f"Maghrib Angle: {item['Maghrib']}. "
-        if "isha" in item:
-            item["description"] += f"Isha Angle: {item['isha']}. "
-        if "ishaInterval" in item:
-            item["description"] += f"Isha Angle: {item['ishaInterval']} min. "
+        if "fajrAngle" in item["parameters"]:
+            item["description"] += f"Fajr Angle: {item['parameters']['fajrAngle']}. "
+        if "maghribAngle" in item["parameters"]:
+            item[
+                "description"
+            ] += f"Maghrib Angle: {item['parameters']['maghribAngle']}. "
+        if "ishaAngle" in item["parameters"]:
+            item["description"] += f"Isha Angle: {item['parameters']['ishaAngle']}. "
+        if "ishaInterval" in item["parameters"]:
+            item[
+                "description"
+            ] += f"Isha Angle: {item['parameters']['ishaInterval']} min. "
         item["description"] = item["description"].strip()
     hash_string = dict_hash(data)
     output = {"data": data, "hash": hash_string}
