@@ -59,6 +59,38 @@ calendars:
         offset: 3
       - name: Teetwal, Karnah
         offset: 4
+  - name: "Jamiat Ahle Hadees J&K"
+    description: "Timings for Jammu and Kashmir copied from calendar of Jamiat Ahle Hadees J&K. Default timings are for Srinagar, use Offsets to calculate for other areas."
+    key: "ahlehadees"
+    timings: "ahlehadees.csv"
+    items:
+      - key: fajr
+        label: Fajr
+      - key: zuhr
+        label: Zuhr
+      - key: asr
+        label: Asr
+      - key: maghrib
+        label: Maghrib
+      - key: isha
+        label: Isha
+    offsets:
+      - name: Pulwama, Kulgam, Harmukh
+        offset: -1
+      - name: Islamabad, Tral, Kud
+        offset: -2
+      - name: Pahalgam
+        offset: -3
+      - name: Leh
+        offset: -11
+      - name: Baramulla, Tangmarg, Sopore
+        offset: 1
+      - name: Bandipora, Poonch
+        offset: 2
+      - name: Uri
+        offset: 3
+      - name: Teetwal, Karnah
+        offset: 4
 
 custom_config:
   - name: "Shia Ithna-Ashari, Leva Institute, Qum"
