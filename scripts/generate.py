@@ -121,6 +121,7 @@ def generate_iftarkar():
                 BASE_FOLDER / ("raw_timings/" + calendar["timings"]),
                 dt.strptime(calendar["start_date"], "%d%m"),
             ),
+            "offsets": [],
         }
     json.dump({"data": data}, open(BASE_FOLDER / "dist/iftarkar.json", "w"))
 
