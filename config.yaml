@@ -140,7 +140,12 @@ custom_config:
       fajrAngle: 19
       ishaAngle: 17
 
-
+iftarkar_calendars:
+  - name: "Madrassa Jamia Taleem-ul-Quran Dar-ul-Fulah, Kishtwar"
+    description: "Timings for Jammu and Kashmir copied from Madrassa Jamia Taleem-ul-Quran Dar-ul-Fulah, Kishtwar."
+    key: "jamiataleem"
+    timings: "jamiataleem.csv"
+    start_date: "1203"
 
 
 

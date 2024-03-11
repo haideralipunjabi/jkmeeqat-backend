@@ -54,8 +54,28 @@ def load_timings(filepath: str, items: list):
     return data
 
 
+def load_iftarkar_timings(filepath: str, first_date: dt):
+    timings = list(csv.reader(open(filepath, "r")))
+    header = timings[0]
+    timings = timings[1:]
+    if len(timings) < 30 or len(timings) > 30:
+        raise Exception("Invalid Timings Data")
+    data = {}
+    for i, row in enumerate(timings):
+        date = first_date + td(days=i)
+        if len(row) != len(header):
+            raise Exception("Invalid Timings Data")
+        row_dict = {}
+        for i in range(len(header)):
+            if not TIME_REGEX.match(row[i]):
+                raise Exception(f"Invalid Timings Data @ {filepath} Row:{i+1}")
+            row_dict[header[i]] = row[i].strip()
+        data[str(date.day).zfill(2) + str(date.month).zfill(2)] = row_dict
+
+    return data
+
+
 def generate_data():
-    initialize()
     data = {}
     for calendar in config["calendars"]:
         data[calendar["key"]] = {
@@ -91,6 +111,21 @@ def generate_data():
     json.dump({"hash": hash_string}, open(BASE_FOLDER / "dist/hash.json", "w"))
 
 
+def generate_iftarkar():
+    data = {}
+    for calendar in config["iftarkar_calendars"]:
+        data[calendar["key"]] = {
+            "name": calendar["name"],
+            "description": calendar["description"],
+            "timings": load_iftarkar_timings(
+                BASE_FOLDER / ("raw_timings/" + calendar["timings"]),
+                dt.strptime(calendar["start_date"], "%d%m"),
+            ),
+        }
+    json.dump({"data": data}, open(BASE_FOLDER / "dist/iftarkar.json", "w"))
+
+
 if __name__ == "__main__":
     initialize()
     generate_data()
+    generate_iftarkar()
