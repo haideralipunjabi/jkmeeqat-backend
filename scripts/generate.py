@@ -90,6 +90,9 @@ def generate_data():
         }
     custom_config = config["custom_config"]
     for item in custom_config:
+        description = ""
+        if "description" in item:
+            description = item["description"]
         item["description"] = f"{item['name']}. "
         if "fajrAngle" in item["parameters"]:
             item["description"] += f"Fajr Angle: {item['parameters']['fajrAngle']}. "
@@ -104,6 +107,7 @@ def generate_data():
                 "description"
             ] += f"Isha Angle: {item['parameters']['ishaInterval']} min. "
         item["description"] = item["description"].strip()
+        item["description"] += f" {description}"
     hash_string = dict_hash(data)
     output = {"data": data, "hash": hash_string}
     json.dump(output, open(BASE_FOLDER / "dist/data.json", "w"))

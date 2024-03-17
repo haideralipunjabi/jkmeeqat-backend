@@ -99,6 +99,7 @@ custom_config:
         fajrAngle: 16
         ishaAngle: 14
         maghribAngle: 4
+    description: "When fasting, for the matter of Ahtiyaat it's recommended to stop eating 10 mins prior to Adhan e Fajr"
   - name: "Gulf Region"
     key: gulf
     parameters:
