@@ -116,19 +116,18 @@ def generate_data():
 
 
 def generate_iftarkar():
-    if config["iftarkar_calendars"] is None:
-        return
     data = {}
-    for calendar in config["iftarkar_calendars"]:
-        data[calendar["key"]] = {
-            "name": calendar["name"],
-            "description": calendar["description"],
-            "timings": load_iftarkar_timings(
-                BASE_FOLDER / ("raw_timings/" + calendar["timings"]),
-                dt.strptime(calendar["start_date"], "%d%m"),
-            ),
-            "offsets": [],
-        }
+    if config["iftarkar_calendars"] is not None:
+        for calendar in config["iftarkar_calendars"]:
+            data[calendar["key"]] = {
+                "name": calendar["name"],
+                "description": calendar["description"],
+                "timings": load_iftarkar_timings(
+                    BASE_FOLDER / ("raw_timings/" + calendar["timings"]),
+                    dt.strptime(calendar["start_date"], "%d%m"),
+                ),
+                "offsets": [],
+            }
     json.dump({"data": data}, open(BASE_FOLDER / "dist/iftarkar.json", "w"))
 
 
