@@ -116,6 +116,8 @@ def generate_data():
 
 
 def generate_iftarkar():
+    if config["iftarkar_calendars"] is None:
+        return
     data = {}
     for calendar in config["iftarkar_calendars"]:
         data[calendar["key"]] = {
