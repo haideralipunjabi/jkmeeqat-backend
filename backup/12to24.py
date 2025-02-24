@@ -5,7 +5,7 @@ from datetime import time
 reader = csv.reader(open(argv[1], "r"))
 writer = csv.writer(open(argv[2], "w"))
 header = []
-am = ["fajr", "sunrise", "zuhr"]
+am = ["fajr", "sunrise", "noon", "zuhr"]
 pm = ["maghrib", "isha", "asr"]
 for i, row in enumerate(reader):
     if i == 0:
