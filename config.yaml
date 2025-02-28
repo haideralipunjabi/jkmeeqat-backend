@@ -113,7 +113,7 @@ calendars:
         offset: -1
       - name: Udhampur, Reasi, Kathua
         offset: 1
-      - name: Sringar, Ganderbal, Shopian, Budgam, Kishtwar, Jammu
+      - name: Srinagar, Ganderbal, Shopian, Budgam, Kishtwar, Jammu
         offset: 2
       - name: Sopore, Tangmarg, Baramulla, Doda
         offset: 3
