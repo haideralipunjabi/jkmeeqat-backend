@@ -32,7 +32,7 @@ calendars:
       - name: Teetwal, Karnah
         offset: 4
   - name: "Educational Trust Kashmir"
-    description: "Timings for Jammu and Kashmir (Fiqah Jaffaria) copied from calendar of Educational Trust Kashmir. Default timings are for Srinagar, use Offsets to calculate for other areas."
+    description: "Timings for Jammu and Kashmir (Fiqah Jaffaria) copied from calendar of Educational Trust Kashmir. You may also use Leva Institute, Qum timings for Fiqah Jaffaria. Default timings are for Srinagar, use Offsets to calculate for other areas."
     key: "etk"
     timings: "etk.csv"
     items:
