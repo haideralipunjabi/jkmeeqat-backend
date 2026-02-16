@@ -31,6 +31,34 @@ calendars:
         offset: 3
       - name: Teetwal, Karnah
         offset: 4
+  - name: "Educational Trust Kashmir"
+    description: "Timings for Jammu and Kashmir (Fiqah Jaffaria) copied from calendar of Educational Trust Kashmir. Timings arranged by Majlis Ulema Imamia Kashmir. You may also use Leva Institute, Qum timings for Fiqah Jaffaria. Default timings are for Srinagar, use Offsets to calculate for other areas."
+    key: "etk"
+    timings: "etk.csv"
+    items:
+      - key: fajr
+        label: Fajr
+      - key: zuhr
+        label: Zuhrain
+      - key: maghrib
+        label: Maghribain
+    offsets:
+      - name: Pulwama, Kulgam, Harmukh
+        offset: -1
+      - name: Islamabad, Tral, Kud
+        offset: -2
+      - name: Pahalgam
+        offset: -3
+      - name: Leh
+        offset: -11
+      - name: Baramulla, Tangmarg, Sopore
+        offset: 1
+      - name: Bandipora, Poonch
+        offset: 2
+      - name: Uri
+        offset: 3
+      - name: Teetwal, Karnah
+        offset: 4
   - name: "Jamiat Ahle Hadees J&K"
     description: "Timings for Jammu and Kashmir copied from calendar of Jamiat Ahle Hadees J&K. Default timings are for Srinagar, use Offsets to calculate for other areas."
     key: "ahlehadees"
