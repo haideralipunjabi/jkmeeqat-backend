@@ -173,6 +173,11 @@ custom_config:
       ishaAngle: 17
 
 iftarkar_calendars:
+  - name: "All J&K Shia Association"
+    description: "Timings for Jammu and Kashmir copied from All Jammu and Kashmir Shia Association."
+    key: "ajksa"
+    timings: "ajksa.csv"
+    start_date: "1902"
 
 
 
