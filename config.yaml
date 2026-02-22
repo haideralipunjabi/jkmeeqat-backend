@@ -181,11 +181,13 @@ iftarkar_calendars:
   - name: "Bangalore - Jamiat Ulama-I-Karnataka"
     description: "Timings for Bangalore copied from Jamiat Ulama-I-Karnataka"
     timings: "blr_juk.csv"
+    key: "blr_juk"
     start_date: "1902"
   - name: "Mumbai - Jamiatul Abrar Siddique Educational Trust"
     description: "Timings for Mumbai copied from Jamiatul Abrar Siddique Educational Trust"
     timings: "mumbai_jaset.csv"
     start_date: "1902"
+    key: "mumbai_jaset"
 
 
 
