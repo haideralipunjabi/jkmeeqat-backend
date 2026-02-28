@@ -188,6 +188,11 @@ iftarkar_calendars:
     timings: "mumbai_jaset.csv"
     start_date: "1902"
     key: "mumbai_jaset"
+  - name: "Faridabad, Haryana"
+    description: "Timings for Faridabad, Haryana calculated using University of Islamic Sciences method."
+    timings: "faridabad_haryana.csv"
+    start_date: "1902"
+    key: "faridabad_haryana"
 
 
 
